@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- EDIT HERE: Update the title of your website if desired -->
+    <title>Richard Hutchinson | Portfolio</title>
+    
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Google Fonts: Inter for a clean, professional, yet relaxed look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons (Optional, used for contact section) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* CSS COMMENTS: 
+           These are your strict brand colors. 
+           Do not change these hex codes to maintain the desired vibe. 
+        */
+        :root {
+            --deep-blue: #163359;
+            --almost-black: #1F2121;
+            --off-white: #FFFFFB;
+            --warm-gold: #A68053;
+            --light-beige: #D9CBA3;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--off-white);
+            color: var(--almost-black);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            color: var(--deep-blue);
+        }
+
+        a {
+            color: var(--warm-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--deep-blue);
+        }
+
+        /* Utility classes for padding and sections */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .bg-light-beige {
+            background-color: var(--light-beige);
+        }
+
+        .bg-deep-blue {
+            background-color: var(--deep-blue);
+            color: var(--off-white);
+        }
+
+        .bg-deep-blue h1, .bg-deep-blue h2, .bg-deep-blue h3 {
+            color: var(--off-white);
+        }
+
+        /* Custom Button */
+        .btn-custom {
+            background-color: var(--warm-gold);
+            color: var(--off-white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px; /* Modern rounded corners */
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn-custom:hover {
+            background-color: var(--deep-blue);
+            color: var(--off-white);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 251, 0.95); /* Off-white with slight transparency */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .navbar-brand {
+            color: var(--deep-blue) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--almost-black) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--warm-gold) !important;
+        }
+
+        /* Underline animation for nav links */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--warm-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--off-white);
+        }
+
+        .hero-text-accent {
+            color: var(--warm-gold);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Qualification Cards */
+        .qual-card {
+            background-color: var(--off-white);
+            border-left: 4px solid var(--warm-gold);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .qual-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .qual-icon {
+            color: var(--deep-blue);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Experience Cards */
+        .experience-card {
+            background-color: var(--off-white);
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            padding: 30px;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .experience-date {
+            color: var(--warm-gold);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        /* My Work Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding-top: 40px;
+        }
+
+        .work-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .work-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(22, 51, 89, 0.9), rgba(22, 51, 89, 0.4)); /* Deep Blue gradient */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .work-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .work-item:hover .work-item-overlay {
+            opacity: 1;
+        }
+
+        .work-title {
+            color: var(--off-white);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .work-subtitle {
+            color: var(--light-beige);
+            font-size: 1rem;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.2s;
+        }
+
+        .work-item:hover .work-title,
+        .work-item:hover .work-subtitle {
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .profile-img-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 4px solid var(--warm-gold);
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            background-color: var(--warm-gold);
+            color: var(--off-white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-link {
+            color: var(--off-white);
+        }
+        
+        .contact-link:hover {
+            color: var(--light-beige);
+        }
+
+        .section-title {
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50px;
+            height: 3px;
+            background-color: var(--warm-gold);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="70">
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <!-- EDIT HERE: Your logo or name -->
+            <a class="navbar-brand" href="#about">RH.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: var(--deep-blue);"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#qualifications">Qualifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experiences">Experiences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 pe-lg-5">
+                    <!-- EDIT HERE: Welcome text -->
+                    <span class="hero-text-accent">Hey there, welcome.</span>
+                    <h1 class="display-3 fw-bolder mb-4">I'm Richard Hutchinson.</h1>
+                    <p class="lead mb-4">
+                        I blend technical expertise with a relaxed, down-to-earth approach to build great things. 
+                        Whether it's solving complex problems or crafting seamless digital experiences, I believe the best work happens when we keep a cool head and focus on what matters: delivering value and keeping the vibe chill.
+                    </p>
+                    <p class="mb-5 text-muted">
+                        With a solid background in development and design, I'm passionate about creating intuitive interfaces and robust architectures that just make sense. Take a look around.
+                    </p>
+                    <a class="btn btn-custom" href="#work">See My Work</a>
+                    <a class="btn btn-link text-decoration-none ms-3" style="color: var(--deep-blue); font-weight: 600;" href="#contact">Get in touch <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Qualifications & Certifications -->
+    <section id="qualifications" class="section-padding bg-light-beige">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-center">Qualifications & Certifications</h2>
+                    <p class="text-muted">My educational background and professional milestones.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Qualification 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="qual-card">
+                        <i class="fas fa-graduation-cap qual-icon"></i>
+                        <!-- EDIT HERE: Degree/Cert Title -->
+                        <h5 class="mb-2">Google Analytics Certificate</h5>
+                        <!-- EDIT HERE: Institution -->
+                        <h6 class="text-muted mb-0">Google Skillshop</h6>
+                        <small class="text-muted">Issued: September 2026</small>
+                    </div>
+                </div>
+
+                <!-- Qualification 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="qual-card">
+                        <i class="fas fa-certificate qual-icon"></i>
+                        <!-- EDIT HERE: Degree/Cert Title -->
+                        <h5 class="mb-2">Search Engine Optimization Certificate</h5>
+                        <!-- EDIT HERE: Institution -->
+                        <h6 class="text-muted mb-0">HubSpot Academy</h6>
+                        <small class="text-muted">Issued: May 2026</small>
+                    </div>
+                </div>
+
+                <!-- Qualification 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="qual-card">
+                        <i class="fas fa-laptop-code qual-icon"></i>
+                        <!-- EDIT HERE: Degree/Cert Title -->
+                        <h5 class="mb-2">Front End Development Libraries Certificate</h5>
+                        <!-- EDIT HERE: Institution -->
+                        <h6 class="text-muted mb-0">freeCodeCamp</h6>
+                        <small class="text-muted">Issued: 2025</small>
+                    </div>
+                </div>
+
+                <!-- Qualification 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="qual-card">
+                        <i class="fas fa-laptop-code qual-icon"></i>
+                        <!-- EDIT HERE: Degree/Cert Title -->
+                        <h5 class="mb-2">Responsive Web Design Certificate)</h5>
+                        <!-- EDIT HERE: Institution -->
+                        <h6 class="text-muted mb-0">freeCodeCamp</h6>
+                        <small class="text-muted">Issued: 2025</small>
+                    </div>
+                </div>
+                
+                <!-- Qualification 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="qual-card">
+                        <i class="fas fa-laptop-code qual-icon"></i>
+                        <!-- EDIT HERE: Degree/Cert Title -->
+                        <h5 class="mb-2">Web Design and Development Certificate</h5>
+                        <!-- EDIT HERE: Institution -->
+                        <h6 class="text-muted mb-0">Vector Technology Institute</h6>
+                        <small class="text-muted">Issued: 2020</small>
+                    </div>
+                </div>
+
+                <!-- Qualification 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="qual-card">
+                        <i class="fas fa-palette qual-icon"></i>
+                        <!-- EDIT HERE: Degree/Cert Title -->
+                        <h5 class="mb-2">Graphic Design Level 1 Certificate</h5>
+                        <!-- EDIT HERE: Institution -->
+                        <h6 class="text-muted mb-0">Vector Technology Institute</h6>
+                        <small class="text-muted">Issued: 2015</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiences" class="section-padding">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title text-center">Experience</h2>
+                    <p class="text-muted">A quick look at my professional journey so far.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Experience Card 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="experience-card">
+                        <!-- EDIT HERE: Experience 1 Data -->
+                        <div class="experience-date">2021 - Present</div>
+                        <h4 class="mb-1">IT Support Specialist/Junior Graphic Artist</h4>
+                        <h6 class="text-muted mb-3">Designs by Marc Limited</h6>
+                        <p>
+                            Provide Tier 1 IT related technical support to production and administrative staff, diagnosing and resolving hardware, 
+                            software, and network issues while maintaining system uptime. Collaborate with Senior Graphic Artist to design
+                            presentations of uniforms for several clients.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Experience Card 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="experience-card">
+                        <!-- EDIT HERE: Experience 2 Data -->
+                        <div class="experience-date">2020</div>
+                        <h4 class="mb-1">KYC Clerk</h4>
+                        <h6 class="text-muted mb-3">Lascelles Co-operative Credit Union</h6>
+                        <p>
+                            Update records of all members that fall in the category of delinquent, dormant and have outstanding documents
+                            which involves calling and speaking with members.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Experience Card 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="experience-card">
+                        <!-- EDIT HERE: Experience 3 Data -->
+                        <div class="experience-date">Summer 2018, Summer 2019</div>
+                        <h4 class="mb-1">ICT Intern</h4>
+                        <h6 class="text-muted mb-3">Nestle Jamaica Limited</h6>
+                        <p>
+                            Delivered first-level troubleshooting support and maintained IT inventory/asset records, 
+                            contributing to a significant reduction in recurring technical issues. Assisted senior
+                            IT staff with system upgrades, equipment replacement, and workstation troubleshooting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <p class="mb-0">Selected projects demonstrating my technical and creative approach.</p>
+            
+            <!-- CSS Grid Container -->
+            <div class="work-grid">
+                
+                <!-- Project 1 -->
+                <!-- EDIT HERE: ALL links strictly point to the Behance profile as requested -->
+                <a href="https://www.behance.net/gallery/203069603/KAY-TRANSPORT-SERVICES-Brand-Identity" target="_blank" rel="noopener noreferrer">
+                    <div class="work-item">
+                        <!-- EDIT HERE: Update image src to your real project screenshot -->
+                        <img src="https://placehold.co/800x600/D9CBA3/1F2121?text=Kay+Transport+Services" alt="KAY-TRANSPORT-SERVICES-Brand-Identity">
+                        <div class="work-item-overlay">
+                            <h3 class="work-title">KAY Transport Services</h3>
+                            <span class="work-subtitle">Brand Identity</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 2 -->
+                <a href="https://www.behance.net/gallery/244372567/The-Apostolic-Worship-Experience-2026" target="_blank" rel="noopener noreferrer">
+                    <div class="work-item">
+                        <!-- EDIT HERE: Update image src to your real project screenshot -->
+                        <img src="https://placehold.co/800x600/A68053/FFFFFB?text=The+Apostolic+Worship+Experience+2026" alt="The-Apostolic-Worship-Experience-2026">
+                        <div class="work-item-overlay">
+                            <h3 class="work-title">The Apostolic Worship Experience 2026</h3>
+                            <span class="work-subtitle">Event Photography</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <a href="https://www.behance.net/gallery/232696703/DJ-XION" target="_blank" rel="noopener noreferrer">
+                    <div class="work-item">
+                        <!-- EDIT HERE: Update image src to your real project screenshot -->
+                        <img src="https://placehold.co/800x600/1F2121/FFFFFB?text=DJ+XION" alt="DJ XION Thumbnail">
+                        <div class="work-item-overlay">
+                            <h3 class="work-title">DJ XION</h3>
+                            <span class="work-subtitle">Brand Identity</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Project 4 -->
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <div class="work-item">
+                        <!-- EDIT HERE: Update image src to your real project screenshot -->
+                        <img src="https://placehold.co/800x600/163359/FFFFFB?text=COMING+SOON" alt="Coming Soon Thumbnail">
+                        <div class="work-item-overlay">
+                            <h3 class="work-title">Farmer's App</h3>
+                            <span class="work-subtitle">Mobile App</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding bg-deep-blue">
+        <div class="container">
+            <div class="row align-items-center">
+                
+                <!-- Profile Image / Left Column -->
+                <div class="col-lg-5 mb-5 mb-lg-0 pe-lg-5 text-center">
+                    <div class="profile-img-container mx-auto" style="max-width: 400px;">
+                        <!-- EDIT HERE: Insert your actual profile picture URL below -->
+                        <!-- The placeholder uses the palette colors for a seamless look until you add yours -->
+                        <img src="me in chair.jpeg" alt="Richard Hutchinson Profile Picture">
+                    </div>
+                </div>
+
+                <!-- Contact Details / Right Column -->
+                <div class="col-lg-7">
+                    <h2 class="section-title text-white">Let's connect.</h2>
+                    <p class="lead mb-5 text-white-50">
+                        Always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Drop me a line, and let's build something great in a chill environment.
+                    </p>
+                    
+                    <ul class="contact-info-list">
+                        <!-- EDIT HERE: Update Email -->
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="d-block text-white-50" style="font-size: 0.9rem;">Email Me</span>
+                                <a href="mailto:hello@richardhutchinson.com" class="contact-link">richutch2.0@gmail.com</a>
+                            </div>
+                        </li>
+                        
+                        <!-- EDIT HERE: Update Phone Number -->
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="d-block text-white-50" style="font-size: 0.9rem;">Call Me</span>
+                                <a href="tel:+1234567890" class="contact-link">+1 (876) 392-4160</a>
+                            </div>
+                        </li>
+
+                        <!-- Behance Profile Link -->
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fab fa-behance"></i>
+                            </div>
+                            <div>
+                                <span class="d-block text-white-50" style="font-size: 0.9rem;">See Full Portfolio</span>
+                                <a href="https://www.behance.net/richardhutchin" target="_blank" rel="noopener noreferrer" class="contact-link">behance.net/richardhutchin</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 text-center" style="background-color: var(--almost-black); color: var(--off-white);">
+        <div class="container">
+            <p class="mb-0 small">&copy; <span id="year"></span> Richard Hutchinson. Built with good vibes.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <script>
+        // Auto-update footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a.nav-link, a.btn-custom, a[href="#contact"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Only prevent default if it's a hash link pointing to an ID on this page
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        const navbarToggler = document.querySelector('.navbar-toggler');
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (window.getComputedStyle(navbarToggler).display !== 'none' && navbarCollapse.classList.contains('show')) {
+                            navbarToggler.click();
+                        }
+
+                        // Scroll to the element accounting for fixed navbar height
+                        const headerOffset = 70;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
