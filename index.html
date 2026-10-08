@@ -128,13 +128,15 @@
         .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
         }
-
+        @media (max-width: 768px) {
         /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background-color: var(--off-white);
+            .hero-section {
+                padding-top: 120px;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                background-color: var(--off-white);
+            }
         }
 
         .hero-text-accent {
