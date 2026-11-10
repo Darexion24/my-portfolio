@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- EDIT HERE: Update the title of your website if desired -->
     <title>Richard Hutchinson | Portfolio</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='15' fill='%23FFFFFB'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='45' font-weight='bold' font-family='sans-serif' fill='%231E334E'>RH</text></svg>">
     
     <!-- Bootstrap 5 CSS via CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
-    <!-- Google Fonts: Inter for a clean, professional, yet relaxed look -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome for Icons (Optional, used for contact section) -->
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        /* CSS COMMENTS: 
-           These are your strict brand colors. 
-           Do not change these hex codes to maintain the desired vibe. 
-        */
         :root {
             --deep-blue: #163359;
             --almost-black: #1F2121;
@@ -53,7 +48,6 @@
             color: var(--deep-blue);
         }
 
-        /* Utility classes for padding and sections */
         .section-padding {
             padding: 100px 0;
         }
@@ -71,13 +65,12 @@
             color: var(--off-white);
         }
 
-        /* Custom Button */
         .btn-custom {
             background-color: var(--warm-gold);
             color: var(--off-white);
             border: none;
             padding: 12px 30px;
-            border-radius: 8px; /* Modern rounded corners */
+            border-radius: 8px;
             font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -90,9 +83,8 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        /* Navbar */
         .navbar {
-            background-color: rgba(255, 255, 251, 0.95); /* Off-white with slight transparency */
+            background-color: rgba(255, 255, 251, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
@@ -114,7 +106,6 @@
             color: var(--warm-gold) !important;
         }
 
-        /* Underline animation for nav links */
         .nav-link::after {
             content: '';
             position: absolute;
@@ -129,8 +120,8 @@
         .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
         }
+
         @media (max-width: 768px) {
-        /* Hero Section */
             .hero-section {
                 padding-top: 120px;
                 min-height: 100vh;
@@ -140,13 +131,13 @@
             }
         }
 
-         .hero-section {
-                padding-top: 60px;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                background-color: var(--off-white);
-            }
+        .hero-section {
+            padding-top: 60px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--off-white);
+        }
 
         .hero-text-accent {
             color: var(--warm-gold);
@@ -156,7 +147,6 @@
             display: block;
         }
 
-        /* Qualification Cards */
         .qual-card {
             background-color: var(--off-white);
             border-left: 4px solid var(--warm-gold);
@@ -177,7 +167,6 @@
             margin-bottom: 15px;
         }
 
-        /* Experience Cards */
         .experience-card {
             background-color: var(--off-white);
             border: none;
@@ -200,7 +189,6 @@
             margin-bottom: 15px;
         }
 
-        /* My Work Grid */
         .work-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -230,7 +218,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(22, 51, 89, 0.9), rgba(22, 51, 89, 0.4)); /* Deep Blue gradient */
+            background: linear-gradient(to top, rgba(22, 51, 89, 0.9), rgba(22, 51, 89, 0.4));
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -267,7 +255,15 @@
             transform: translateY(0);
         }
 
-        /* Contact Section */
+        /* Github Repo Card Hover Effects */
+        .repo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .repo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+        }
+
         .profile-img-container {
             border-radius: 20px;
             overflow: hidden;
@@ -336,7 +332,6 @@
 
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container">
-            <!-- EDIT HERE: Your logo or name -->
             <a class="navbar-brand" href="#about">RH.</a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars" style="color: var(--deep-blue);"></i>
@@ -347,6 +342,8 @@
                     <li class="nav-item"><a class="nav-link" href="#qualifications">Qualifications</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experiences">Experiences</a></li>
                     <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+                    <!-- New Code Link -->
+                    <li class="nav-item"><a class="nav-link" href="#code">Code</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -357,7 +354,6 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-8 pe-lg-5">
-                    <!-- EDIT HERE: Welcome text -->
                     <span class="hero-text-accent">Hey there, welcome.</span>
                     <h1 class="display-3 fw-bolder mb-4">I'm Richard Hutchinson.</h1>
                     <p class="lead mb-4">
@@ -374,7 +370,6 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: Qualifications & Certifications -->
     <section id="qualifications" class="section-padding bg-light-beige">
         <div class="container">
             <div class="row mb-5">
@@ -385,73 +380,55 @@
             </div>
             
             <div class="row g-4">
-                <!-- Qualification 1 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="qual-card">
                         <i class="fas fa-graduation-cap qual-icon"></i>
-                        <!-- EDIT HERE: Degree/Cert Title -->
                         <h5 class="mb-2">Google Analytics Certificate</h5>
-                        <!-- EDIT HERE: Institution -->
                         <h6 class="text-muted mb-0">Google Skillshop</h6>
                         <small class="text-muted">Issued: September 2026</small>
                     </div>
                 </div>
 
-                <!-- Qualification 2 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="qual-card">
                         <i class="fas fa-certificate qual-icon"></i>
-                        <!-- EDIT HERE: Degree/Cert Title -->
                         <h5 class="mb-2">Search Engine Optimization Certificate</h5>
-                        <!-- EDIT HERE: Institution -->
                         <h6 class="text-muted mb-0">HubSpot Academy</h6>
                         <small class="text-muted">Issued: May 2026</small>
                     </div>
                 </div>
 
-                <!-- Qualification 3 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="qual-card">
                         <i class="fas fa-laptop-code qual-icon"></i>
-                        <!-- EDIT HERE: Degree/Cert Title -->
                         <h5 class="mb-2">Front End Development Libraries Certificate</h5>
-                        <!-- EDIT HERE: Institution -->
                         <h6 class="text-muted mb-0">freeCodeCamp</h6>
                         <small class="text-muted">Issued: 2025</small>
                     </div>
                 </div>
 
-                <!-- Qualification 4 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="qual-card">
                         <i class="fas fa-laptop-code qual-icon"></i>
-                        <!-- EDIT HERE: Degree/Cert Title -->
-                        <h5 class="mb-2">Responsive Web Design Certificate)</h5>
-                        <!-- EDIT HERE: Institution -->
+                        <h5 class="mb-2">Responsive Web Design Certificate</h5>
                         <h6 class="text-muted mb-0">freeCodeCamp</h6>
                         <small class="text-muted">Issued: 2025</small>
                     </div>
                 </div>
                 
-                <!-- Qualification 5 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="qual-card">
                         <i class="fas fa-laptop-code qual-icon"></i>
-                        <!-- EDIT HERE: Degree/Cert Title -->
                         <h5 class="mb-2">Web Design and Development Certificate</h5>
-                        <!-- EDIT HERE: Institution -->
                         <h6 class="text-muted mb-0">Vector Technology Institute</h6>
                         <small class="text-muted">Issued: 2020</small>
                     </div>
                 </div>
 
-                <!-- Qualification 6 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="qual-card">
                         <i class="fas fa-palette qual-icon"></i>
-                        <!-- EDIT HERE: Degree/Cert Title -->
                         <h5 class="mb-2">Graphic Design Level 1 Certificate</h5>
-                        <!-- EDIT HERE: Institution -->
                         <h6 class="text-muted mb-0">Vector Technology Institute</h6>
                         <small class="text-muted">Issued: 2015</small>
                     </div>
@@ -470,10 +447,8 @@
             </div>
             
             <div class="row g-4">
-                <!-- Experience Card 1 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="experience-card">
-                        <!-- EDIT HERE: Experience 1 Data -->
                         <div class="experience-date">2021 - Present</div>
                         <h4 class="mb-1">IT Support Specialist/Junior Graphic Artist</h4>
                         <h6 class="text-muted mb-3">Designs by Marc Limited</h6>
@@ -485,10 +460,8 @@
                     </div>
                 </div>
 
-                <!-- Experience Card 2 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="experience-card">
-                        <!-- EDIT HERE: Experience 2 Data -->
                         <div class="experience-date">2020</div>
                         <h4 class="mb-1">KYC Clerk</h4>
                         <h6 class="text-muted mb-3">Lascelles Co-operative Credit Union</h6>
@@ -499,10 +472,8 @@
                     </div>
                 </div>
 
-                <!-- Experience Card 3 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="experience-card">
-                        <!-- EDIT HERE: Experience 3 Data -->
                         <div class="experience-date">Summer 2018, Summer 2019</div>
                         <h4 class="mb-1">ICT Intern</h4>
                         <h6 class="text-muted mb-3">Nestle Jamaica Limited</h6>
@@ -522,14 +493,9 @@
             <h2 class="section-title">My Work</h2>
             <p class="mb-0">Selected projects demonstrating my technical and creative approach.</p>
             
-            <!-- CSS Grid Container -->
             <div class="work-grid">
-                
-                <!-- Project 1 -->
-                <!-- EDIT HERE: ALL links strictly point to the Behance profile as requested -->
                 <a href="https://www.behance.net/gallery/203069603/KAY-TRANSPORT-SERVICES-Brand-Identity" target="_blank" rel="noopener noreferrer">
                     <div class="work-item">
-                        <!-- EDIT HERE: Update image src to your real project screenshot -->
                         <img src="https://placehold.co/800x600/D9CBA3/1F2121?text=Kay+Transport+Services" alt="KAY-TRANSPORT-SERVICES-Brand-Identity">
                         <div class="work-item-overlay">
                             <h3 class="work-title">KAY Transport Services</h3>
@@ -538,10 +504,8 @@
                     </div>
                 </a>
 
-                <!-- Project 2 -->
                 <a href="https://www.behance.net/gallery/244372567/The-Apostolic-Worship-Experience-2026" target="_blank" rel="noopener noreferrer">
                     <div class="work-item">
-                        <!-- EDIT HERE: Update image src to your real project screenshot -->
                         <img src="https://placehold.co/800x600/A68053/FFFFFB?text=The+Apostolic+Worship+Experience+2026" alt="The-Apostolic-Worship-Experience-2026">
                         <div class="work-item-overlay">
                             <h3 class="work-title">The Apostolic Worship Experience 2026</h3>
@@ -550,10 +514,8 @@
                     </div>
                 </a>
 
-                <!-- Project 3 -->
                 <a href="https://www.behance.net/gallery/232696703/DJ-XION" target="_blank" rel="noopener noreferrer">
                     <div class="work-item">
-                        <!-- EDIT HERE: Update image src to your real project screenshot -->
                         <img src="https://placehold.co/800x600/1F2121/FFFFFB?text=DJ+XION" alt="DJ XION Thumbnail">
                         <div class="work-item-overlay">
                             <h3 class="work-title">DJ XION</h3>
@@ -562,10 +524,8 @@
                     </div>
                 </a>
                 
-                <!-- Project 4 -->
                 <a href="" target="_blank" rel="noopener noreferrer">
                     <div class="work-item">
-                        <!-- EDIT HERE: Update image src to your real project screenshot -->
                         <img src="https://placehold.co/800x600/163359/FFFFFB?text=COMING+SOON" alt="Coming Soon Thumbnail">
                         <div class="work-item-overlay">
                             <h3 class="work-title">Farmer's App</h3>
@@ -573,25 +533,84 @@
                         </div>
                     </div>
                 </a>
-
             </div>
         </div>
+    </section>
+
+    <!-- NEW GITHUB / FEATURED CODE SECTION -->
+    <section id="code" class="py-5" style="background-color: #163359; color: #FFFFFB;">
+      <div class="container py-5">
+        <div class="row mb-5 text-center">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="fw-bold mb-3" style="color: #FFFFFB;">Under The Hood</h2>
+            <p class="lead" style="color: #D9CBA3;">
+              A look at my technical experiments, open-source contributions, and architecture. 
+              Check out my <a href="https://github.com/Darexion24" target="_blank" style="color: #A68053; text-decoration: none; border-bottom: 1px dashed #A68053;">GitHub</a> for more.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Repo Card 1 -->
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm repo-card" style="background-color: #1F2121; border-radius: 12px;">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#A68053" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                  <a href="https://github.com/Darexion24/smart-scheduler" target="_blank" class="stretched-link" style="color: #D9CBA3; text-decoration: none;">View Code &rarr;</a>
+                </div>
+                <h4 class="fw-bold mb-2" style="color: #FFFFFB;">Smart Scheduler</h4>
+                <p style="color: #D9CBA3; font-size: 0.95rem;">
+                    My version of an AI personal scheduler, with inspiration from Apple.
+                </p>
+                <div class="mt-4">
+                    <span class="badge" style="background-color: #163359; color: #D9CBA3; margin-right: 5px;">HTML</span>
+                    <span class="badge" style="background-color: #163359; color: #D9CBA3; margin-right: 5px;">TypeScript</span>
+                    <span class="badge" style="background-color: #163359; color: #D9CBA3;">CSS</span>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Repo Card 2 -->
+          <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm repo-card" style="background-color: #1F2121; border-radius: 12px;">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#A68053" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                  </svg>
+                  <a href="https://github.com/Darexion24/daring_creations_zero_stress_ultimate_wedding_package" target="_blank" class="stretched-link" style="color: #D9CBA3; text-decoration: none;">View Code &rarr;</a>
+                </div>
+                <h4 class="fw-bold mb-2" style="color: #FFFFFB;">Zero-Stress Ultimate Wedding Package</h4>
+                <p style="color: #D9CBA3; font-size: 0.95rem;">
+                    A client requested package website that can be downloaded as a PDF.
+                </p>
+                <div class="mt-4">
+                    <span class="badge" style="background-color: #163359; color: #D9CBA3; margin-right: 5px;">HTML</span>
+                    <span class="badge" style="background-color: #163359; color: #D9CBA3; margin-right: 5px;">CSS</span>
+                    <span class="badge" style="background-color: #163359; color: #D9CBA3;">JS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="section-padding bg-deep-blue">
         <div class="container">
             <div class="row align-items-center">
                 
-                <!-- Profile Image / Left Column -->
                 <div class="col-lg-5 mb-5 mb-lg-0 pe-lg-5 text-center">
                     <div class="profile-img-container mx-auto" style="max-width: 400px;">
-                        <!-- EDIT HERE: Insert your actual profile picture URL below -->
-                        <!-- The placeholder uses the palette colors for a seamless look until you add yours -->
                         <img src="me in chair.jpeg" alt="Richard Hutchinson Profile Picture">
                     </div>
                 </div>
 
-                <!-- Contact Details / Right Column -->
                 <div class="col-lg-7">
                     <h2 class="section-title text-white">Let's connect.</h2>
                     <p class="lead mb-5 text-white-50">
@@ -599,29 +618,26 @@
                     </p>
                     
                     <ul class="contact-info-list">
-                        <!-- EDIT HERE: Update Email -->
                         <li>
                             <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
                                 <span class="d-block text-white-50" style="font-size: 0.9rem;">Email Me</span>
-                                <a href="mailto:hello@richardhutchinson.com" class="contact-link">richutch2.0@gmail.com</a>
+                                <a href="mailto:richutch2.0@gmail.com" class="contact-link">richutch2.0@gmail.com</a>
                             </div>
                         </li>
                         
-                        <!-- EDIT HERE: Update Phone Number -->
                         <li>
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
                                 <span class="d-block text-white-50" style="font-size: 0.9rem;">Call Me</span>
-                                <a href="tel:+1234567890" class="contact-link">+1 (876) 392-4160</a>
+                                <a href="tel:+18763924160" class="contact-link">+1 (876) 392-4160</a>
                             </div>
                         </li>
 
-                        <!-- Behance Profile Link -->
                         <li>
                             <div class="contact-icon">
                                 <i class="fab fa-behance"></i>
@@ -629,6 +645,17 @@
                             <div>
                                 <span class="d-block text-white-50" style="font-size: 0.9rem;">See Full Portfolio</span>
                                 <a href="https://www.behance.net/richardhutchin" target="_blank" rel="noopener noreferrer" class="contact-link">behance.net/richardhutchin</a>
+                            </div>
+                        </li>
+
+                        <!-- New GitHub Profile Link -->
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <span class="d-block text-white-50" style="font-size: 0.9rem;">View My Code</span>
+                                <a href="https://github.com/Darexion24" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/Darexion24</a>
                             </div>
                         </li>
                     </ul>
@@ -654,7 +681,6 @@
         // Smooth scrolling for navigation links
         document.querySelectorAll('a.nav-link, a.btn-custom, a[href="#contact"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // Only prevent default if it's a hash link pointing to an ID on this page
                 if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     
@@ -662,14 +688,12 @@
                     const targetElement = document.querySelector(targetId);
                     
                     if (targetElement) {
-                        // Close mobile menu if open
                         const navbarToggler = document.querySelector('.navbar-toggler');
                         const navbarCollapse = document.querySelector('.navbar-collapse');
                         if (window.getComputedStyle(navbarToggler).display !== 'none' && navbarCollapse.classList.contains('show')) {
                             navbarToggler.click();
                         }
 
-                        // Scroll to the element accounting for fixed navbar height
                         const headerOffset = 70;
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
